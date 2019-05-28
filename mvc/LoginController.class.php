@@ -166,7 +166,7 @@ class LoginController{
     
         public function chaxun1(){
             // $data = $_POST;
-            $old_data1 = M()->query_sql("SELECT * FROM kecheng");
+            $old_data1 = M()->query_sql("SELECT * FROM data");
             $counta=count($old_data1);
             echo ajax_return($counta,'',$old_data1);
         }
@@ -178,7 +178,7 @@ class LoginController{
             $head = $data['head']; 
             $name = $data['name'];
             $talk = $data['talk'];
-            $result=M()->update("kecheng",Array('head'=>"$head",'name'=>"$name",'talk'=>"$talk",),"username",$username);
+            $result=M()->update("data",Array('head'=>"$head",'name'=>"$name",'talk'=>"$talk",),"username",$username);
             echo "1";
         }
 }
