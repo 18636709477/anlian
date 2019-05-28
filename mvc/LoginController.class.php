@@ -174,12 +174,11 @@ class LoginController{
      
         public function change1(){
             $data = $_POST;
-            $ID = $data['ID'];
+            $username = $data['username'];
             $head = $data['head']; 
             $name = $data['name'];
             $talk = $data['talk'];
-            $username = $data['username'];
-            $result=M()->update("kecheng",Array('head'=>"$head",'name'=>"$name",'talk'=>"$talk",'username'=>"$username"),"ID",$ID);
+            $result=M()->update("kecheng",Array('head'=>"$head",'name'=>"$name",'talk'=>"$talk",),"username",$username);
             echo "1";
         }
 }
