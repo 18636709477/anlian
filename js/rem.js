@@ -23,7 +23,6 @@ document.write('<meta name="viewport" content="width=device-width,user-scalable=
         function refreshRem() {
                 //获取可视区
                 var width = docEl.getBoundingClientRect().width;
-                console.log(width)
                 var rem = width /16;
 
                 docEl.style.fontSize = rem + 'px';
