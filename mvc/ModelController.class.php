@@ -1,6 +1,6 @@
 <?php
 class ModelController{
-    private $dsn="mysql:host=localhost;dbname=ziliao";
+    private $dsn="mysql:host=localhost;dbname=anlian";
     private $username="root";
     private $password="root";
     public static $pdo;
@@ -33,12 +33,12 @@ class ModelController{
     /*
      * delete方法
      */
-    public function delete($table,$hh,$id){
+    public function delete($table,$id){
         try{
             //DELETE FROM student WHERE id=1;
             self::$pdo->query("SET NAMES UTF8");
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $result=self::$pdo->exec("DELETE FROM {$table} WHERE {$hh}={$id}");
+            $result=self::$pdo->exec("DELETE FROM {$table} WHERE ID={$id}");
             return $result;
         }catch (Exception $e){
             die($e->getMessage());
@@ -70,7 +70,7 @@ class ModelController{
     /*
      * update方法
      */
-    public function update($table,$data,$aa,$id){
+    public function update($table,$data,$id){
         try{
 //          Array
 //          (
@@ -86,7 +86,7 @@ class ModelController{
             //p($sql).die;
             self::$pdo->query("SET NAMES UTF8");
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $result=self::$pdo->exec("UPDATE {$table} SET $sql WHERE {$aa}={$id}");
+            $result=self::$pdo->exec("UPDATE {$table} SET $sql WHERE ID={$id}");
             return $result;
         }catch (Exception $e){
             die($e->getMessage());

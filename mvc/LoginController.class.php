@@ -27,18 +27,20 @@ class LoginController{
     //新闻详情
     //查询数据库
     public function query(){
-        $data = $_POST;
-        $page = $data["email"];
-        $old_data= M()->query_sql("SELECT * FROM user WHERE email='{$page}'");
-        $old_data= current($old_data);
-        if (!empty($old_data)) {
-            echo ajax_return("505", "用户名已存在", "");
-            exit;
-        }
+        $data = $_GET;
+        $tel = $data["tel"];
+        $old_data= M()->query_sql("SELECT a.name,a.head,b.date,b.image,b.message from data a join message b on a.tel=b.title WHERE b.title='{$tel}' ");
+       $content=count($old_data);
+        echo ajax_return($content,'',$old_data);
+        // if (!empty($old_data)) {
+        //     echo ajax_return("505", "用户名已存在", "");
+        //     exit;
+        // }
     }
        public function querys(){
         $data = $_POST;
         $page = $data["email"];
+        $arr=[];
         $old_data= M()->query_sql("SELECT * FROM user WHERE email='{$page}'");
         $old_data= current($old_data);
         if (!empty($old_data)) {
@@ -67,7 +69,6 @@ class LoginController{
             }
                 
         }
-
     /*
      * 加密方法
      */
@@ -155,14 +156,12 @@ class LoginController{
                     exit;
                 }
     }
-
     public function select2(){
     // $data = $_POST;
     $old_data1 = M()->query_sql("SELECT * FROM news");
     $counta=count($old_data1);
     echo ajax_return($counta,'',$old_data1);
     }
-
     
         public function chaxun1(){
             // $data = $_POST;
@@ -174,11 +173,11 @@ class LoginController{
      
         public function change1(){
             $data = $_POST;
-            $username = $data['username'];
+            $tel = $data['tel'];
             $head = $data['head']; 
             $name = $data['name'];
             $talk = $data['talk'];
-            $result=M()->update("data",Array('head'=>"$head",'name'=>"$name",'talk'=>"$talk",),"username",$username);
+            $result=M()->update("data",Array('head'=>"$head",'name'=>"$name",'talk'=>"$talk"),"tel",$tel);
             echo "1";
         }
 }
