@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/new_file.css"/>
+</head>
+<body>
+	<div id="box">
+		<div id="to">
+			<ul id="yd1">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<p>BELL</p>
+			<img src="images/01.png"/>
+			<p>4:21  PM</p>
+			<ul id="yd2">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<p>BELL</p>
+			<img src="images/01.png"/>
+			<img src="images/logo.png" alt="" class="inof" />
+			<p>主页</p>
+			<img src="images/logo.png" alt="" />
+		</div>
+		<div id="kong">
+			<img src="images/02.png"/ id="img">
+		</div>
+		<div id="iviperipus">
+			<img src="images/Layer1.png" alt="">
+			<div id="txmc">
+				<div id="tx">
+					<!-- <input type="file" name="photo" onchange="preview(this)"> -->
+					<img src="images/girl-1.jpg" id="iimg"></div>
+				<p id="mc">iViperipus</p>
+			</div>
+			<ul id="ul">
+				<a href="###">
+					<li class="zhuye">
+						<img src="images/icon1.png"/>
+						<p>主页</p>
+					</li>
+				</a>
+				<a href="diary-picture.html">
+					<li>
+						<img src="images/icon2.png"/>
+						<p>日记墙</p>
+					</li>
+				</a>
+				<a href="###">
+					<li>
+						<img src="images/icon3.png"/>
+						<p>关于我们</p>
+					</li>
+				</a>
+				<a href="anlian.html">
+					<li>
+						<img src="images/icon4.png"/>
+						<p>我的信息</p>
+					</li>
+				</a>
+				<a href="###" class="logout">
+					<li>
+						<img src="images/icon5.png"/>
+						<p>退出登录</p>
+					</li>
+				</a>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<!-- <script src="js/jquery.form.js"></script> -->
+<!-- <script src="js/myUpload.js"></script> -->
+<script>
+	$('.inof').click(function(){
+		$('#iviperipus').animate({'left':'65%'});
+        $('#img').animate({'left':'65%'});
+	})
+	$('#kong').click(function(){
+		$('#iviperipus').animate({'left':'0'});
+        $('#img').animate({'left':'0'});
+	})
+	$('.zhuye').click(function(){
+		$('#iviperipus').animate({'left':'0'});
+        $('#img').animate({'left':'0'});
+	})
+	if (localStorage.off!=undefined) {
+		var user=JSON.parse(localStorage.off)
+	console.log(user)
+	$('#iimg').attr('src',user[0].head)
+	$('#mc').html(user[0].name)
+	}
+	$('.logout').click(function(){
+		localStorage.clear()
+		window.location.href='tp-tab.html'
+		// history.go(0)
+	})
+	
+</script>
